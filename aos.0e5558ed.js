@@ -119,39 +119,30 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"js/aos.js":[function(require,module,exports) {
 AOS.init({
-  // Global settings:
-  disable: false,
-  // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-  startEvent: 'DOMContentLoaded',
-  // name of the event dispatched on the document, that AOS should initialize on
-  initClassName: 'aos-init',
-  // class applied after initialization
-  animatedClassName: 'aos-animate',
-  // class applied on animation
-  useClassNames: false,
-  // if true, will add content of `data-aos` as classes on scroll
-  disableMutationObserver: false,
-  // disables automatic mutations' detections (advanced)
-  debounceDelay: 50,
-  // the delay on debounce used while resizing window (advanced)
-  throttleDelay: 99,
-  // the delay on throttle used while scrolling the page (advanced)
-  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-  offset: 50,
-  // offset (in px) from the original trigger point
-  delay: 0,
-  // values from 0 to 3000, with step 50ms
-  duration: 400,
-  // values from 0 to 3000, with step 50ms
-  easing: 'ease',
-  // default easing for AOS animations
-  once: false,
-  // whether animation should happen only once - while scrolling down
-  mirror: false,
-  // whether elements should animate out while scrolling past them
-  anchorPlacement: 'top-bottom' // defines which position of the element regarding to window should trigger the animation
-
-});
+  // AOS would work only for windows bigger than or equal to 768px
+  disable: function disable() {
+    var maxWidth = 768;
+    return window.innerWidth < maxWidth;
+  }
+}); // AOS.init({
+//   // Global settings:
+//   disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+//   startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+//   initClassName: 'aos-init', // class applied after initialization
+//   animatedClassName: 'aos-animate', // class applied on animation
+//   useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+//   disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+//   debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+//   throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+//   // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+//   offset: 50, // offset (in px) from the original trigger point
+//   delay: 0, // values from 0 to 3000, with step 50ms
+//   duration: 500, // values from 0 to 3000, with step 50ms
+//   easing: 'ease', // default easing for AOS animations
+//   once: false, // whether animation should happen only once - while scrolling down
+//   mirror: false, // whether elements should animate out while scrolling past them
+//   anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+// });
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -180,7 +171,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63899" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52341" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
