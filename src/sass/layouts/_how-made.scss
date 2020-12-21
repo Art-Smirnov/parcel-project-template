@@ -33,7 +33,7 @@ picture {
   @include for-size(desktop) {
     background-image: url(../images/pictures/icons/decor_milk_d.svg);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top 350px left 0px;
     background-size: contain;
   }
 
