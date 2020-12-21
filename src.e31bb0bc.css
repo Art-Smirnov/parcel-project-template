@@ -282,6 +282,10 @@ img {
   text-decoration: none;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 .btn {
   display: inline-block;
   border-radius: 22px;
@@ -386,7 +390,7 @@ img {
 #go-top {
   position: fixed;
   right: 10px;
-  bottom: 200px;
+  bottom: 100px;
   width: 50px;
   height: 50px;
   border-color: transparent;
@@ -395,6 +399,16 @@ img {
   transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
   display: none;
   cursor: pointer;
+}
+@media (max-width: 767px) {
+  #go-top {
+    opacity: 0.5;
+  }
+}
+@media (min-width: 768px) {
+  #go-top {
+    bottom: 200px;
+  }
 }
 #go-top:hover, #go-top:focus {
   filter: brightness(1.5);
@@ -699,12 +713,16 @@ img {
   position: relative;
   height: 502px;
   padding-top: 193px;
-  background-image: url(/hero_ice_1x_m.a63ad9f2.png);
-  background-repeat: no-repeat;
-  background-position: 80% 100%;
-  background-size: 171px auto;
 }
-@media (min-resolution: 2dppx) {
+@media (max-width: 767px) {
+  .hero .container {
+    background-image: url(/hero_ice_1x_m.a63ad9f2.png);
+    background-repeat: no-repeat;
+    background-position: 80% 100%;
+    background-size: 171px auto;
+  }
+}
+@media (max-width: 767px) and (min-resolution: 2dppx) {
   .hero .container {
     background-image: url(/hero_ice_2x_m.aa566372.png);
   }
@@ -714,14 +732,6 @@ img {
     padding-top: 102px;
     padding-bottom: 28px;
     height: 400px;
-    background-image: url(/hero_ice_1x_t.2c19286f.png), url(/hero_ellipse_1x_t.134b6daa.png);
-    background-size: 143px auto, 324px auto;
-    background-position: 60% 100%, 70% 31px;
-  }
-}
-@media (min-width: 768px) and (min-resolution: 2dppx) {
-  .hero .container {
-    background-image: url(/hero_ice_2x_t.e61b18c9.png), url(/hero_ellipse_2x_t.98b4ced3.png);
   }
 }
 @media (min-width: 1200px) {
@@ -729,31 +739,87 @@ img {
     padding-top: 171px;
     padding-bottom: 45px;
     height: 665px;
-    background-image: url(/hero_ice_1x_d.8b2c8925.png), url(/hero_ellipse_1x_d.6d10c851.png);
-    background-size: 236px auto, 538px auto;
-    background-position: 60% 100%, 68% 52px;
-  }
-}
-@media (min-width: 1200px) and (min-resolution: 2dppx) {
-  .hero .container {
-    background-image: url(/hero_ice_2x_d.524dd8ea.png), url(/hero_ellipse_2x_d.256e5bcb.png);
   }
 }
 
-.hero-milk {
-  position: absolute;
-  left: 15px;
-  bottom: 28px;
-  width: 124px;
-  height: 126px;
+@media (min-width: 768px) {
+  .hero-circle {
+    position: absolute;
+    right: 118px;
+    top: 31px;
+    background-image: url(/hero_ellipse_1x_t.134b6daa.png);
+    width: 324px;
+    height: 322px;
+    background-size: contain;
+  }
 }
-.hero-milk:hover {
+@media (min-width: 768px) and (min-resolution: 2dppx) {
+  .hero-circle {
+    background-image: url(/hero_ellipse_2x_t.98b4ced3.png);
+  }
+}
+@media (min-width: 1200px) {
+  .hero-circle {
+    right: 192px;
+    top: 52px;
+    background-image: url(/hero_ellipse_1x_d.6d10c851.png);
+    width: 538px;
+    height: 538px;
+  }
+}
+@media (min-width: 1200px) and (min-resolution: 2dppx) {
+  .hero-circle {
+    background-image: url(/hero_ellipse_2x_d.256e5bcb.png);
+  }
+}
+.hero-circle:hover {
   animation: swing 0.6s ease;
   animation-iteration-count: 1;
 }
+
+@media (min-width: 768px) {
+  .hero-ice-cream {
+    position: absolute;
+    right: 228px;
+    bottom: 0;
+    background-image: url(/hero_ice_1x_t.2c19286f.png);
+    width: 143px;
+    height: 336px;
+    background-size: contain;
+  }
+}
+@media (min-width: 768px) and (min-resolution: 2dppx) {
+  .hero-ice-cream {
+    background-image: url(/hero_ice_2x_t.e61b18c9.png);
+  }
+}
+@media (min-width: 1200px) {
+  .hero-ice-cream {
+    right: 370px;
+    bottom: 0;
+    background-image: url(/hero_ice_1x_d.8b2c8925.png);
+    width: 236px;
+    height: 557px;
+  }
+}
+@media (min-width: 1200px) and (min-resolution: 2dppx) {
+  .hero-ice-cream {
+    background-image: url(/hero_ice_2x_d.524dd8ea.png);
+  }
+}
+.hero-ice-cream:hover {
+  animation: swing 0.6s ease;
+  animation-iteration-count: 1;
+}
+
 @media (min-width: 768px) {
   .hero-milk {
+    position: absolute;
+    left: 15px;
+    bottom: 28px;
     background-image: url(/hero_milk_1x_t.5cc8b1dc.png);
+    width: 124px;
+    height: 126px;
     background-size: contain;
   }
 }
@@ -764,11 +830,11 @@ img {
 }
 @media (min-width: 1200px) {
   .hero-milk {
+    left: 0px;
+    bottom: 45px;
     background-image: url(/hero_milk_1x_d.19b6acec.png);
     width: 188px;
     height: 191px;
-    left: 0px;
-    bottom: 45px;
   }
 }
 @media (min-width: 1200px) and (min-resolution: 2dppx) {
@@ -776,21 +842,19 @@ img {
     background-image: url(/hero_milk_2x_d.57d80d42.png);
   }
 }
-
-.hero-girl {
-  position: absolute;
-  right: 15px;
-  bottom: 0;
-  width: 168px;
-  height: 133px;
-}
-.hero-girl:hover {
+.hero-milk:hover {
   animation: swing 0.6s ease;
   animation-iteration-count: 1;
 }
+
 @media (min-width: 768px) {
   .hero-girl {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
     background-image: url(/hero_girl_1x_t.2aa12cc5.png);
+    width: 168px;
+    height: 133px;
     background-size: contain;
   }
 }
@@ -801,16 +865,20 @@ img {
 }
 @media (min-width: 1200px) {
   .hero-girl {
+    right: 32px;
     background-image: url(/hero_girl_1x_d.5c2589ef.png);
     width: 293px;
     height: 232px;
-    right: 32px;
   }
 }
 @media (min-width: 1200px) and (min-resolution: 2dppx) {
   .hero-girl {
     background-image: url(/hero_girl_2x_d.278a3ae4.png);
   }
+}
+.hero-girl:hover {
+  animation: swing 0.6s ease;
+  animation-iteration-count: 1;
 }
 
 .page-title {
@@ -1143,6 +1211,15 @@ img {
     margin-bottom: 0;
     padding: 125px 44px 50px;
   }
+  .products-list .products-card:hover {
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+@media (min-width: 1200px) and (min-width: 1200px) {
+  .products-list .products-card:hover .product-img {
+    background: url(/background_ice_2x_d.9298df5a.png);
+    background-position: top center;
+  }
 }
 .products-list .products-card:nth-child(1) {
   background-color: #ffb8ca;
@@ -1212,6 +1289,7 @@ img {
 }
 .products-list .products-card-description {
   margin-bottom: 30px;
+  overflow: hidden;
   font-family: "DM Sans", sans-serif;
   font-weight: 700;
   font-size: 14px;
@@ -1487,9 +1565,7 @@ img {
 }
 .hm_btn:hover, .hm_btn:focus {
   background: #ecebeb;
-}
-.hm_btn:hover .hm_icon, .hm_btn:focus .hm_icon {
-  fill: #ffffff;
+  color: #d41443;
 }
 .hm_btn .hm_icon {
   margin-left: 9px;
@@ -1575,6 +1651,9 @@ img {
   .benefits {
     padding-bottom: 310px;
   }
+}
+.benefits .container {
+  overflow: hidden;
 }
 
 @media (min-width: 600px) {
@@ -2450,6 +2529,7 @@ img {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   background-color: #fff;
+  cursor: pointer;
 }
 
 .contact-modal-close-svg {
@@ -2481,7 +2561,7 @@ img {
 
 .modal-franchise {
   position: absolute;
-  top: 50%;
+  top: 10%;
   left: 50%;
   width: calc(100% - 30px);
   height: auto;
@@ -2489,15 +2569,16 @@ img {
   background-color: #fff;
   border-radius: 15px;
   border: 2px solid #ffa5ba;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -5%) scale(1);
   transition: transform 0.5s ease-in;
 }
 @media (min-width: 600px) {
   .modal-franchise {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
     width: 500px;
   }
 }
-
 .is-hidden .modal-franchise {
   transform: translate(-50%, -50%) scale(0.5);
   transition: transform 0.5s ease-in;
@@ -2857,6 +2938,7 @@ img {
   bottom: 0;
   background-color: rgba(25, 28, 38, 0.8);
   z-index: 100;
+  overflow-y: scroll;
   opacity: 1;
   transition: opacity 0.5s ease-in;
 }
@@ -2874,9 +2956,9 @@ img {
 .modal {
   display: flex;
   position: absolute;
-  top: 50%;
+  top: 10%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -5%) scale(1);
   transition: transform 0.5s ease-in;
   border: thick double #ffa5ba;
   background-color: #ffffff;
@@ -2886,9 +2968,7 @@ img {
 @media screen and (max-width: 480px) {
   .modal {
     max-width: 480px;
-    left: 47%;
-    width: 100%;
-    max-width: 609px;
+    width: calc(100% - 30px);
   }
 }
 @media screen and (min-width: 481px) {
@@ -2898,10 +2978,10 @@ img {
 }
 @media screen and (max-width: 1199px) {
   .modal {
-    padding-left: 40px;
-    padding-right: 40px;
-    margin-right: 15px;
-    margin-left: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 @media screen and (min-width: 1200px) {
