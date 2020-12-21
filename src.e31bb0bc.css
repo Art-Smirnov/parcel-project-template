@@ -39,7 +39,7 @@
 }
 @keyframes products-card-title-animation-accent {
   0% {
-    letter-spacing: 1em;
+    letter-spacing: 0.7em;
     -webkit-transform: translateZ(400px);
     transform: translateZ(400px);
     opacity: 0;
@@ -772,9 +772,11 @@ body.modal-open {
     background-image: url(/hero_ellipse_2x_d.256e5bcb.png);
   }
 }
-.hero-circle:hover {
-  animation: swing 0.6s ease;
-  animation-iteration-count: 1;
+@media (min-width: 1200px) {
+  .hero-circle:hover {
+    animation: swing 0.6s ease;
+    animation-iteration-count: 1;
+  }
 }
 
 @media (min-width: 768px) {
@@ -807,9 +809,11 @@ body.modal-open {
     background-image: url(/hero_ice_2x_d.524dd8ea.png);
   }
 }
-.hero-ice-cream:hover {
-  animation: swing 0.6s ease;
-  animation-iteration-count: 1;
+@media (min-width: 1200px) {
+  .hero-ice-cream:hover {
+    animation: swing 0.6s ease;
+    animation-iteration-count: 1;
+  }
 }
 
 @media (min-width: 768px) {
@@ -842,9 +846,11 @@ body.modal-open {
     background-image: url(/hero_milk_2x_d.57d80d42.png);
   }
 }
-.hero-milk:hover {
-  animation: swing 0.6s ease;
-  animation-iteration-count: 1;
+@media (min-width: 1200px) {
+  .hero-milk:hover {
+    animation: swing 0.6s ease;
+    animation-iteration-count: 1;
+  }
 }
 
 @media (min-width: 768px) {
@@ -876,9 +882,11 @@ body.modal-open {
     background-image: url(/hero_girl_2x_d.278a3ae4.png);
   }
 }
-.hero-girl:hover {
-  animation: swing 0.6s ease;
-  animation-iteration-count: 1;
+@media (min-width: 1200px) {
+  .hero-girl:hover {
+    animation: swing 0.6s ease;
+    animation-iteration-count: 1;
+  }
 }
 
 .page-title {
@@ -1408,7 +1416,7 @@ body.modal-open {
   .section_how_made {
     background-image: url(/decor_milk_d.ab080694.svg);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top 350px left 0px;
     background-size: contain;
   }
 }
@@ -2967,13 +2975,13 @@ body.modal-open {
 }
 @media screen and (max-width: 480px) {
   .modal {
-    max-width: 480px;
+    max-width: 380px;
     width: calc(100% - 30px);
   }
 }
 @media screen and (min-width: 481px) {
   .modal {
-    width: 450px;
+    width: 410px;
   }
 }
 @media screen and (max-width: 1199px) {
@@ -2997,23 +3005,29 @@ body.modal-open {
 
 .modal-icon {
   position: absolute;
-  left: 90%;
-  top: 1%;
-}
-@media screen and (max-width: 480px) {
-  .modal-icon {
-    left: 87%;
-  }
+  top: 0fpx;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
 }
 
 .btn-close {
-  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 30px;
-  background-color: inherit;
+  height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+  background-color: #fff;
   cursor: pointer;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-close:hover .icon-exit,
 .btn-close :focus .icon-exit {
@@ -3038,6 +3052,7 @@ body.modal-open {
   font-weight: 700;
   font-size: 20px;
   line-height: 1.15;
+  color: #d41443;
 }
 @media screen and (desktop) {
   .form-title {
@@ -3084,22 +3099,12 @@ body.modal-open {
 .form-chek {
   text-align: center;
 }
-@media screen and (min-width: 350px) {
-  .form-chek {
-    position: relative;
-  }
-}
 .form-chek label {
   font-size: 14px;
   line-height: 1.71;
   cursor: pointer;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   color: #000000;
-}
-@media screen and (min-width: 350px) {
-  .form-chek label {
-    padding-left: 15px;
-  }
 }
 
 .form-chek input[type=checkbox] {
@@ -3116,13 +3121,6 @@ body.modal-open {
   height: 16px;
   border: 2px solid #000000;
   border-radius: 4px;
-}
-@media screen and (min-width: 350px) {
-  .span-icon {
-    position: absolute;
-    left: 7px;
-    top: 4px;
-  }
 }
 
 .checkbox {
@@ -3152,6 +3150,7 @@ body.modal-open {
 .form-no {
   outline: none;
   padding-left: 43px;
+  width: 100%;
 }
 
 .form-no:focus {
@@ -3163,7 +3162,7 @@ body.modal-open {
   top: 25px;
   left: 20px;
   display: inline-block;
-  fill: #000000;
+  fill: #ffa5ba;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -3212,6 +3211,11 @@ body.modal-open {
   min-width: 102px;
   font-size: 14px;
   line-height: 1.28;
+}
+
+.btn_modal:focus .btn_modal_icon,
+.btn_modal:hover .btn_modal_icon {
+  fill: #d41443;
 }
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */
