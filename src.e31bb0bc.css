@@ -1090,6 +1090,7 @@ body.modal-open {
   padding-top: 121px;
   padding-bottom: 98px;
   text-align: center;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   .products {
